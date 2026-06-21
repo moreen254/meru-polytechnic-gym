@@ -70,6 +70,25 @@ body {
     background-color: #e55100;
 }
 
+/* Messages */
+.error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.success-message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
@@ -346,7 +365,21 @@ body {
 
 .dashboard-card h3 {
     color: #ff6b35;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.dashboard-card p {
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+}
+
+.dashboard-card p strong {
+    color: #222;
+}
+
+.dashboard-card span {
+    color: #666;
 }
 
 .btn-link {
@@ -355,6 +388,8 @@ body {
     text-decoration: none;
     margin-right: 1rem;
     padding: 0.5rem 0;
+    font-weight: 500;
+    transition: text-decoration 0.3s ease;
 }
 
 .btn-link:hover {
@@ -392,7 +427,8 @@ footer {
     }
 
     .facilities-grid,
-    .contact-info {
+    .contact-info,
+    .dashboard-grid {
         grid-template-columns: 1fr;
     }
 

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Prepare statement to prevent SQL injection
-    $stmt = $conn->prepare('SELECT id, username, password, fullname FROM members WHERE username = ?');
+    $stmt = $conn->prepare('SELECT id, username, password, fullname, email, phone FROM members WHERE username = ?');
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -29,10 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['fullname'] = $user['fullname'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['phone'] = $user['phone'];
             $_SESSION['success'] = 'Login successful!';
 
             // Redirect to dashboard
-            header('Location: ../dashboard.html');
+            header('Location: ../dashboard-page.php');
             exit();
         } else {
             $_SESSION['error'] = 'Invalid password';
@@ -47,5 +49,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Redirect back to login page
 header('Location: ../login.html');
 exit();
-
 ?>
