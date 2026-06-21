@@ -24,6 +24,19 @@
     <div class="form-container">
         <div class="form-box">
             <h2>Member Login</h2>
+            
+            <?php
+                session_start();
+                if (isset($_SESSION['error'])) {
+                    echo '<div class="error-message">' . htmlspecialchars($_SESSION['error']) . '</div>';
+                    unset($_SESSION['error']);
+                }
+                if (isset($_SESSION['success'])) {
+                    echo '<div class="success-message">' . htmlspecialchars($_SESSION['success']) . '</div>';
+                    unset($_SESSION['success']);
+                }
+            ?>
+
             <form id="loginForm" method="POST" action="php/login.php">
                 <div class="form-group">
                     <label for="username">Username:</label>
